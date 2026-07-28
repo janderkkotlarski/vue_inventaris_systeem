@@ -1,5 +1,11 @@
 <script setup>
+import {ref} from 'vue';
+
+import {getAllInventory} from '../store.js';
+
 import Inventory from '../../../components/InventoryTable.vue';
+
+const inventoryList = ref(getAllInventory);
 </script>
 
 <template>
@@ -7,5 +13,5 @@ import Inventory from '../../../components/InventoryTable.vue';
     <br />
     <br />
 
-    <Inventory />
+    <Inventory :inventory-list="inventoryList" />
 </template>

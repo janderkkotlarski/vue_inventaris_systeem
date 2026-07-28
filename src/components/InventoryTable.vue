@@ -1,5 +1,9 @@
 <script setup>
 import {router} from '../router';
+
+const props = defineProps({
+    inventoryList: {type: Object, default: null},
+});
 </script>
 
 <template>
@@ -9,10 +13,10 @@ import {router} from '../router';
             <th>Aanwezig</th>
             <th>Minimum</th>
         </tr>
-        <tr>
-            <td>entry.name</td>
-            <td>entry.amount</td>
-            <td>entry.min</td>
+        <tr v-for="entry in props.inventoryList" :key="entry.id">
+            <td>{{ entry.name }}</td>
+            <td>{{ entry.amount }}</td>
+            <td>{{ entry.min }}</td>
         </tr>
     </table>
 </template>
