@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import {router} from '../router';
-
 const props = defineProps({
     inventoryList: {type: Object, default: null},
 });
