@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {router} from '../router';
 
 const props = defineProps({
@@ -15,7 +15,9 @@ const props = defineProps({
         </tr>
         <tr v-for="entry in props.inventoryList" :key="entry.id">
             <td>{{ entry.name }}</td>
-            <td>{{ entry.actualAmount }}</td>
+            <td>
+                <input v-model.number="entry.actualAmount" type="number" min="0" />
+            </td>
             <td>{{ entry.minimumAmount }}</td>
         </tr>
     </table>

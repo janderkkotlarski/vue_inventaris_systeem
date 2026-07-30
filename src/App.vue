@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import {invisChar} from './components/constants.ts';
+
+import {routes} from './domains/inventory/routes.ts';
+
+const routesType = typeof routes;
 </script>
 
 <template>
@@ -18,5 +22,7 @@ import {invisChar} from './components/constants.ts';
         <RouterView :key="$route.path" />
 
         <br />
+
+        {{ routesType }}
     </main>
 </template>
