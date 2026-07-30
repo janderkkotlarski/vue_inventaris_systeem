@@ -15,8 +15,8 @@ const props = defineProps({
         </tr>
         <tr v-for="entry in props.inventoryList" :key="entry.id">
             <td>{{ entry.name }}</td>
-            <td>{{ entry.amount }}</td>
-            <td>{{ entry.min }}</td>
+            <td>{{ entry.actualAmount }}</td>
+            <td>{{ entry.minimumAmount }}</td>
         </tr>
     </table>
 </template>
