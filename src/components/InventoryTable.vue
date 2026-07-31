@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const props = defineProps({
-    inventoryList: {type: Object, default: null},
-});
+import type {Product} from './constants';
+const props = defineProps<{
+    inventoryList: Product[];
+}>();
 </script>
 
 <template>
@@ -11,12 +12,12 @@ const props = defineProps({
             <th>Aanwezig</th>
             <th>Minimum</th>
         </tr>
-        <tr v-for="entry in props.inventoryList" :key="entry.id">
-            <td>{{ entry.name }}</td>
+        <tr v-for="product in props.inventoryList" :key="product.id">
+            <td>{{ product.name }}</td>
             <td>
-                <input v-model.number="entry.actualAmount" type="number" min="0" />
+                <input v-model.number="product.actualAmount" type="number" min="0" />
             </td>
-            <td>{{ entry.minimumAmount }}</td>
+            <td>{{ product.minimumAmount }}</td>
         </tr>
     </table>
 </template>
