@@ -8,11 +8,13 @@ const props = defineProps<{
 <template>
     <table>
         <tr>
+            <th>ID</th>
             <th>Naam</th>
             <th>Aanwezig</th>
             <th>Minimum</th>
         </tr>
         <tr v-for="product in props.inventoryList" :key="product.id">
+            <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>
                 <input v-model.number="product.actualAmount" type="number" min="0" />

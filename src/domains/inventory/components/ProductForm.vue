@@ -1,3 +1,40 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {ref} from 'vue';
+import type {Ref} from 'vue';
 
-<template></template>
+import type {Product} from '../../../components/constants';
+
+import {router} from '../../../router';
+
+const props = defineProps<{
+    product: Product;
+    submitText: string;
+}>();
+
+const productCopy: Ref<Product> = ref(props.product);
+
+const emit = defineEmits(['submit']);
+
+const submitProduct = () => {
+    emit('submit', productCopy.value);
+};
+
+const annul = () => {
+    router.push('/');
+};
+</script>
+
+<template>
+    <label for="name">Naam:</label>
+    <input type="text" v-model="productCopy.name" maxlength="100" />
+    <br />
+    <label for="actualAmount">Aantal:</label>
+    <input type="number" v-model.number="productCopy.actualAmount" min="0" max="10000" />
+    <br />
+    <label for="minimumAmount">Aantal:</label>
+    <input type="number" v-model.number="productCopy.minimumAmount" min="0" max="10000" />
+    <br />
+    <button type="button" @click="submitProduct">{{ submitText }}</button>
+    <br />
+    <button type="button" @click="annul">Annuleren</button>
+</template>
