@@ -11,3 +11,6 @@ const inventory = ref([
 ]);
 
 export const getAllInventory = computed(() => inventory.value);
+
+export const addProduct = (product: {id: number; name: string; actualAmount: number; minimumAmount: number}) =>
+    inventory.value.push(product);
