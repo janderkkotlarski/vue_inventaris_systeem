@@ -3,7 +3,7 @@ import Create from './pages/CreAte.vue';
 import Edit from './pages/EdIt.vue';
 
 export const routes = [
-    {path: '/', component: Overview},
-    {path: '/create', component: Create},
-    {path: '/edit/:id', component: Edit},
+    {path: '/', component: Overview, name: 'inventory.overview'},
+    {path: '/create', component: Create, name: 'inventory.create'},
+    {path: '/edit/:id', component: Edit, name: 'inventory.edit'},
 ];

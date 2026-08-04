@@ -7,3 +7,10 @@ export type Product = {
     actualAmount: number;
     minimumAmount: number;
 };
+
+export const voidProduct: Product = {
+    id: -1,
+    name: '',
+    actualAmount: -1,
+    minimumAmount: -1,
+};

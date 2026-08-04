@@ -1,26 +1,23 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import type {Ref} from 'vue';
 
 import type {Product} from '../../../components/constants';
 
-import {router} from '../../../router';
-
-const props = defineProps<{
+const {product} = defineProps<{
     product: Product;
     submitText: string;
 }>();
 
-const productCopy: Ref<Product> = ref(props.product);
+const productCopy = ref<Product>({...product});
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits(['submit', 'annul']);
 
 const submitProduct = () => {
     emit('submit', productCopy.value);
 };
 
 const annul = () => {
-    router.push('/');
+    emit('annul');
 };
 </script>
 

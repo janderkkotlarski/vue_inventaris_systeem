@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import type {Ref} from 'vue';
 import ProductForm from '../components/ProductForm.vue';
 
 import type {Product} from '../../../components/constants.ts';
@@ -13,7 +12,7 @@ const endID = getAllInventory.value[getAllInventory.value.length - 1].id;
 
 const submitText = 'Toevoegen';
 
-const product: Ref<Product> = ref({
+const product = ref<Product>({
     id: endID + 1,
     name: '',
     actualAmount: 0,
@@ -24,10 +23,14 @@ const pushProduct = (prod: Product) => {
     addProduct(prod);
     router.push('/');
 };
+
+const annulment = () => {
+    router.push('/');
+};
 </script>
 
 <template>
     Voeg nieuw product {{ product.name }} toe:
     <br />
-    <ProductForm @submit="pushProduct" :product="product" :submit-text="submitText" />
+    <ProductForm @submit="pushProduct" @annul="annulment" :product="product" :submit-text="submitText" />
 </template>

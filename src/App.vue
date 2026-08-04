@@ -6,7 +6,7 @@ import {invisChar} from './components/constants.ts';
     <nav>
         <br />
 
-        <RouterLink to="/">Overzicht</RouterLink>
+        <RouterLink :to="{name: 'inventory.overview'}">Overzicht</RouterLink>
         {{ invisChar }}
         <RouterLink to="/create">Nieuw product</RouterLink>
 

@@ -1,13 +1,9 @@
 import {ref, computed} from 'vue';
 
-import {productEntry} from '../../components/functions';
-
-import type {Ref} from 'vue';
-
 import type {Product} from '../../components/constants';
 
 //: Ref<Product>
-const inventory: Ref<Product[]> = ref([
+const inventory = ref<Product[]>([
     {id: 1, name: 'Verscheurde kaart', actualAmount: 10, minimumAmount: 3},
     {id: 2, name: 'Hyperkubuide bol', actualAmount: 7, minimumAmount: 1},
     {id: 3, name: 'Verbeeldingsopslag van 120 Sligrobytes', actualAmount: 54, minimumAmount: 30},
@@ -17,12 +13,17 @@ const inventory: Ref<Product[]> = ref([
     {id: 7, name: 'Onverbeelding', actualAmount: 7, minimumAmount: 3},
 ]);
 
-export const getAllInventory = computed(() => inventory.value);
+export const getAllInventory = computed<Product[]>(() => inventory.value);
 
-// export const getProductById = (id: number) => computed(() => inventory.value.find(product => product.id == id));
-
-export const getProductById = (id: number) => computed(() => productEntry(inventory.value, id));
+export const getProductById = (ident: number) =>
+    computed<Product>(() => inventory.value.find(item => item.id === ident) as Product);
 
 export const addProduct = (product: Product) => inventory.value.push(product);
 
-export const updateProduct = () => {};
+export const updateProduct = (product: Product) => {
+    const oldProduct = inventory.value.find(item => item.id === product.id)!;
+
+    oldProduct.name = product.name;
+    oldProduct.actualAmount = product.actualAmount;
+    oldProduct.minimumAmount = product.minimumAmount;
+};
