@@ -8,6 +8,7 @@ const {product} = defineProps<{
     submitText: string;
 }>();
 
+// ... is the spread operator
 const productCopy = ref<Product>({...product});
 
 const emit = defineEmits(['submit', 'annul']);
