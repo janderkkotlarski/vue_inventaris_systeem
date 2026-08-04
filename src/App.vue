@@ -8,7 +8,7 @@ import {invisChar} from './components/constants.ts';
 
         <RouterLink :to="{name: 'inventory.overview'}">Overzicht</RouterLink>
         {{ invisChar }}
-        <RouterLink to="/create">Nieuw product</RouterLink>
+        <RouterLink :to="{name: 'inventory.create'}">Nieuw product</RouterLink>
 
         <br />
     </nav>

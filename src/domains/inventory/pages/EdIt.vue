@@ -16,11 +16,11 @@ const product = getProductById(ident);
 
 const editProduct = (prod: Product) => {
     updateProduct(prod);
-    router.push('/');
+    router.push({name: 'inventory.overview'});
 };
 
 const annulment = () => {
-    router.push('/');
+    router.push({name: 'inventory.overview'});
 };
 </script>
 

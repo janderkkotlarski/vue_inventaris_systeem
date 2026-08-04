@@ -21,11 +21,11 @@ const product = ref<Product>({
 
 const pushProduct = (prod: Product) => {
     addProduct(prod);
-    router.push('/');
+    router.push({name: 'inventory.overview'});
 };
 
 const annulment = () => {
-    router.push('/');
+    router.push({name: 'inventory.overview'});
 };
 </script>
 
