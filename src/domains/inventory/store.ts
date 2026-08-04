@@ -17,5 +17,9 @@ const inventory: Ref<Product[]> = ref([
 
 export const getAllInventory = computed(() => inventory.value);
 
+export const getProductById = (id: number) => computed(() => inventory.value.find(product => product.id == id));
+
 export const addProduct = (product: {id: number; name: string; actualAmount: number; minimumAmount: number}) =>
     inventory.value.push(product);
+
+export const updateProduct = () => {};
