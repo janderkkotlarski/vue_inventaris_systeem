@@ -5,13 +5,15 @@ import {router} from '../../../router/index.ts';
 import {getProductById, updateProduct} from '../store.ts';
 import {useRoute} from 'vue-router';
 
+const submitText = 'Aanpassen';
+
 const route = useRoute();
 
-const ident = parseInt(route.params.id.replace(':', ''));
+const ident = parseInt(route.params.id as string);
 
 const product = getProductById(ident);
 
-const editProduct = prod => {
+const editProduct = () => {
     updateProduct();
     router.push('/');
 };
@@ -19,6 +21,8 @@ const editProduct = prod => {
 
 <template>
     Pas product {{ product.name }} aan:
+    <br />
+    {{ identityType }}
     <br />
     <ProductForm @submit="editProduct" :product="product" :submit-text="submitText" />
 </template>

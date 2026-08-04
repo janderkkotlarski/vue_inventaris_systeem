@@ -1,5 +1,7 @@
 import {ref, computed} from 'vue';
 
+import {productEntry} from '../../components/functions';
+
 import type {Ref} from 'vue';
 
 import type {Product} from '../../components/constants';
@@ -17,9 +19,10 @@ const inventory: Ref<Product[]> = ref([
 
 export const getAllInventory = computed(() => inventory.value);
 
-export const getProductById = (id: number) => computed(() => inventory.value.find(product => product.id == id));
+// export const getProductById = (id: number) => computed(() => inventory.value.find(product => product.id == id));
 
-export const addProduct = (product: {id: number; name: string; actualAmount: number; minimumAmount: number}) =>
-    inventory.value.push(product);
+export const getProductById = (id: number) => computed(() => productEntry(inventory.value, id));
+
+export const addProduct = (product: Product) => inventory.value.push(product);
 
 export const updateProduct = () => {};
