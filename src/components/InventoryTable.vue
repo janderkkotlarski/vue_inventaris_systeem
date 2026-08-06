@@ -9,10 +9,7 @@ const props = defineProps<{
 }>();
 
 const editing = (ident: number) => {
-    // const route = '/edit/' + ident.toString();
     router.push({name: 'inventory.edit', params: {id: ident}});
-
-    // router.push(route);
 };
 </script>
 

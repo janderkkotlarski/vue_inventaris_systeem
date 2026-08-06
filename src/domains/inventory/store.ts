@@ -15,6 +15,10 @@ const inventory = ref<Product[]>([
 
 export const getAllInventory = computed<Product[]>(() => inventory.value);
 
+export const getLowInventory = computed<Product[]>(() =>
+    inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount),
+);
+
 export const getProductById = (ident: number) =>
     computed<Product>(() => inventory.value.find(item => item.id === ident) as Product);
 
