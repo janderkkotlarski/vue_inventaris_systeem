@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
-import type {Product, Order} from './constants';
-import {invisChar} from './constants';
-
-// import {router} from '../router';
+import type {Product, Order} from '../../../components/constants';
 
 const props = defineProps<{
     orderList: Product[];
 }>();
-
-// const orders = ref<Order[]>([]);
 
 const minimumOrdering = () => {
     let orders: Order[] = [];
@@ -25,6 +20,12 @@ const minimumOrdering = () => {
 };
 
 const orders = ref<Order[]>(minimumOrdering());
+
+const emit = defineEmits(['submit']);
+
+const submitOrders = () => {
+    emit('submit', '');
+};
 </script>
 
 <template>
@@ -33,7 +34,7 @@ const orders = ref<Order[]>(minimumOrdering());
             <th>Naam</th>
             <th>Aanwezig</th>
             <th>Minimum</th>
-            <th>{{ invisChar }}</th>
+            <th>Bestellen</th>
         </tr>
         <tr v-for="order in orders" :key="order.id">
             <td>{{ order.product.name }}</td>
@@ -44,4 +45,6 @@ const orders = ref<Order[]>(minimumOrdering());
             </td>
         </tr>
     </table>
+
+    <button type="button" @click="submitOrders">Bestel</button>
 </template>
