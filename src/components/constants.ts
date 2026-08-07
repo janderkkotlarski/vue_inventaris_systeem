@@ -14,3 +14,9 @@ export const voidProduct: Product = {
     actualAmount: -1,
     minimumAmount: -1,
 };
+
+export type Order = {
+    id: number;
+    product: Product;
+    amount: number;
+};

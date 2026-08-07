@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
-import type {Product} from './constants';
+import type {Product, Order} from './constants';
 import {invisChar} from './constants';
 
 // import {router} from '../router';
@@ -10,26 +10,21 @@ const props = defineProps<{
     orderList: Product[];
 }>();
 
-type Order = {
-    id: number;
-    amount: number;
-};
-
-const orders = ref<Order[]>([]);
+// const orders = ref<Order[]>([]);
 
 const minimumOrdering = () => {
-    const minOrders: Order[] = [];
+    let orders: Order[] = [];
 
     for (const prod of props.orderList) {
-        const order: Order = {id: prod.id, amount: prod.minimumAmount - prod.actualAmount};
+        const order: Order = {id: prod.id, product: prod, amount: prod.minimumAmount - prod.actualAmount};
 
-        minOrders.push(order);
+        orders.push(order);
     }
 
-    orders.value = minOrders;
+    return orders;
 };
 
-minimumOrdering();
+const orders = ref<Order[]>(minimumOrdering());
 </script>
 
 <template>
@@ -40,12 +35,12 @@ minimumOrdering();
             <th>Minimum</th>
             <th>{{ invisChar }}</th>
         </tr>
-        <tr v-for="product in props.orderList" :key="product.id">
-            <td>{{ product.name }}</td>
-            <td>{{ product.actualAmount }}</td>
-            <td>{{ product.minimumAmount }}</td>
+        <tr v-for="order in orders" :key="order.id">
+            <td>{{ order.product.name }}</td>
+            <td>{{ order.product.actualAmount }}</td>
+            <td>{{ order.product.minimumAmount }}</td>
             <td>
-                <input v-model="orders[product.id - 1].amount" type="number" min="0" />
+                <input v-model="order.amount" type="number" min="0" />
             </td>
         </tr>
     </table>
