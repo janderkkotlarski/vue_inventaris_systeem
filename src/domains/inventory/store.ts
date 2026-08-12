@@ -19,8 +19,9 @@ export const getLowInventory = computed<Product[]>(() =>
     inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount),
 );
 
+// TODO: computed kan weg
 export const getProductById = (ident: number) =>
-    computed<Product>(() => inventory.value.find(item => item.id === ident) as Product);
+    inventory.value.find(item => item.id === ident) as Product;
 
 export const addProduct = (product: Product) => inventory.value.push(product);
 

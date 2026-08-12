@@ -12,6 +12,8 @@ const endID = getAllInventory.value[getAllInventory.value.length - 1].id;
 
 const submitText = 'Toevoegen';
 
+// TODO: ik zou er voor kiezen de logica van de id aan de store over te laten, dus onderstaand product zonder id
+// te maken. In de definitie van Product zou ik id optioneel maken.
 const product = ref<Product>({
     id: endID + 1,
     name: '',

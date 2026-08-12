@@ -7,6 +7,8 @@ const props = defineProps<{
     orderList: Product[];
 }>();
 
+// TODO: het lijkt mij gemakkelijker een computed property van orders te maken, waarbij je een array.map functie gebruikt voor de conversie
+// van products naar orders
 const minimumOrdering = () => {
     let orders: Order[] = [];
 

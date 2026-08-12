@@ -3,6 +3,7 @@ import {invisChar} from './components/constants.ts';
 </script>
 
 <template>
+    <!-- TODO: de navigatie kun je nog in een eigen vue component stoppen -->
     <nav>
         <br />
 
