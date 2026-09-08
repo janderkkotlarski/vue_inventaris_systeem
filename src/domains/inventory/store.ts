@@ -1,4 +1,4 @@
-import {ref, computed} from 'vue';
+import {ref} from 'vue';
 
 import type {Product} from '../../components/library';
 
@@ -15,13 +15,14 @@ const inventory = ref<Product[]>([
 
 // export const getAllInventory = computed<Product[]>(() => inventory.value);
 
+//
 export const getAllInventory: Product[] = inventory.value;
 
 // export const getLowInventory: Product[] = inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount);
 
-export const getLowInventory = computed<Product[]>(() =>
-    inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount),
-);
+// export const getLowInventory = computed<Product[]>(() =>
+//     inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount),
+// );
 
 // TODO: computed kan weg
 // Zonder computed ververst getLowInventory niet naar behoren

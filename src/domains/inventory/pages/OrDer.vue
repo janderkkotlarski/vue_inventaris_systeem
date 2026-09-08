@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import {getLowInventory} from '../store.js';
+import {computed} from 'vue';
+
+import {getAllInventory} from '../store.js';
 
 import {router} from '../../../router/index.ts';
 
 import OrderTable from '../components/OrderTable.vue';
 
-const orderList = getLowInventory;
+const products = getAllInventory;
 
 const ordering = () => {
     router.push({name: 'inventory.overview'});
