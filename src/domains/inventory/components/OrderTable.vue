@@ -7,18 +7,26 @@ const props = defineProps<{
     orderList: Product[];
 }>();
 
+const product2order = (prod: Product): Order => {
+    return {id: prod.id, product: prod, amount: prod.minimumAmount - prod.actualAmount};
+};
+
 // TODO: het lijkt mij gemakkelijker een computed property van orders te maken, waarbij je een array.map functie gebruikt voor de conversie
 // van products naar orders
 const minimumOrdering = () => {
     let orders: Order[] = [];
 
     for (const prod of props.orderList) {
-        const order: Order = {id: prod.id, product: prod, amount: prod.minimumAmount - prod.actualAmount};
+        // const order: Order = {id: prod.id, product: prod, amount: prod.minimumAmount - prod.actualAmount};
 
-        orders.push(order);
+        orders.push(product2order(prod));
     }
 
     return orders;
+};
+
+const orderMin = () => {
+    true;
 };
 
 const orders = ref<Order[]>(minimumOrdering());
