@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
-import type {Product} from '../../../components/constants';
+import type {Product} from '../../../components/library';
 
 const {product} = defineProps<{
     product: Product;

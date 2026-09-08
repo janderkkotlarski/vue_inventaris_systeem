@@ -4,7 +4,7 @@ import ProductForm from '../components/ProductForm.vue';
 import {router} from '../../../router/index.ts';
 import {getProductById, updateProduct} from '../store.ts';
 import {useRoute} from 'vue-router';
-import type {Product} from '../../../components/constants.ts';
+import type {Product} from '../../../components/library.ts';
 
 const submitText = 'Aanpassen';
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
-import type {Product, Order} from '../../../components/constants';
+import type {Product, Order} from '../../../components/library';
 
 const props = defineProps<{
     orderList: Product[];

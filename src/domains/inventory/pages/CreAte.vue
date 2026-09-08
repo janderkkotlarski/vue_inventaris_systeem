@@ -2,13 +2,13 @@
 import {ref} from 'vue';
 import ProductForm from '../components/ProductForm.vue';
 
-import type {Product} from '../../../components/constants.ts';
+import type {Product} from '../../../components/library.ts';
 
 import {router} from '../../../router';
 
 import {getAllInventory, addProduct} from '../store';
 
-const endID = getAllInventory.value[getAllInventory.value.length - 1].id;
+const endID = getAllInventory[getAllInventory.length - 1].id;
 
 const submitText = 'Toevoegen';
 

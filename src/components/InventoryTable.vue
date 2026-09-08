@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type {Product} from './constants';
-import {invisChar} from './constants';
+import type {Product} from './library';
+import {invisChar} from './library';
 
 import {router} from '../router';
 

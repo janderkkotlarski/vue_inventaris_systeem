@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {invisChar} from './components/constants.ts';
+import {invisChar} from './components/library.ts';
 </script>
 
 <template>
