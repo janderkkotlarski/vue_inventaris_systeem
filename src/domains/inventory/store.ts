@@ -13,19 +13,10 @@ const inventory = ref<Product[]>([
     {id: 7, name: 'Onverbeelding', actualAmount: 7, minimumAmount: 3},
 ]);
 
-// export const getAllInventory = computed<Product[]>(() => inventory.value);
-
-//
+// Only need this for best access to the up date inventory
+// Once exported, one can get to the desired (sub)data.
 export const getAllInventory: Product[] = inventory.value;
 
-// export const getLowInventory: Product[] = inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount);
-
-// export const getLowInventory = computed<Product[]>(() =>
-//     inventory.value.filter(prod => prod.actualAmount < prod.minimumAmount),
-// );
-
-// TODO: computed kan weg
-// Zonder computed ververst getLowInventory niet naar behoren
 export const getProductById = (ident: number) => inventory.value.find(item => item.id === ident) as Product;
 
 export const addProduct = (product: Product) => inventory.value.push(product);

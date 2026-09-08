@@ -8,9 +8,7 @@ import type {Product} from '../../../components/library.ts';
 
 const submitText = 'Aanpassen';
 
-const route = useRoute();
-
-const ident = parseInt(route.params.id as string);
+const ident = parseInt(useRoute().params.id as string);
 
 const product = getProductById(ident);
 
