@@ -8,13 +8,6 @@ export type Product = {
     minimumAmount: number;
 };
 
-export const voidProduct: Product = {
-    id: -1,
-    name: '',
-    actualAmount: -1,
-    minimumAmount: -1,
-};
-
 export type Order = {
     id: number;
     product: Product;

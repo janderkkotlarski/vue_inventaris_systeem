@@ -3,7 +3,7 @@ import {getLowInventory} from '../store.js';
 
 import {router} from '../../../router/index.ts';
 
-import Order from '../components/OrderTable.vue';
+import OrderTable from '../components/OrderTable.vue';
 
 const orderList = getLowInventory;
 
@@ -17,5 +17,5 @@ const ordering = () => {
     <br />
     <br />
 
-    <Order @submit="ordering" :order-list="orderList" />
+    <OrderTable @submit="ordering" :order-list="orderList" />
 </template>
